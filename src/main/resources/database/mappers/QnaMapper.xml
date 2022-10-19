@@ -8,7 +8,21 @@
 		SELECT * FROM QNA ORDER BY NUM DESC limit #{startRow},#{perPage}
 	</select>
 	
-	<insert id="setAdd" parameterType="QnaVO">
-		INSERT INTO QNA VALUES(null,#{writer},#{title},#{contents},sysdate())
+	<insert id="setAdd" parameterType="QnaVO" useGeneratedKeys="true" keyProperty="num"> <!-- db에서 auto increment 되는거 사용 -->
+		INSERT INTO QNA VALUES(null,#{writer},#{title},#{contents},sysdate(),0,0,0)
 	</insert>
+	
+	<insert id="setFileAdd" parameterType="QnaFileVO">
+		INSERT INTO QNAFILES VALUES(NULL,#{num},#{fileName},#{oriName})
+	</insert>
+	
+	<select id="getDetail" parameterType="QnaVO" resultType="QnaVO">
+		SELECT *
+		FROM QNA Q
+			INNER JOIN
+			QNAFILES QF 
+			USING(NUM)
+		WHERE NUM=#{num}
+	</select>
+	
 </mapper>
