@@ -14,9 +14,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.FullyQualifiedAnnotationBeanNameGenerator;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.event.annotation.BeforeTestClass;
+import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
+//@Rollback(true)
+@Transactional
 class QnaMapperTest {
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 	@Autowired
@@ -46,17 +50,18 @@ class QnaMapperTest {
 		System.out.println("Test 메서드 실행후");
 	}
 	
-//	@Test
-//	void test2()throws Exception {
-//		log.info("test2 case");
-//		QnaVO qnaVO = new QnaVO();
-//		for(int i=0; i<100; i++) {
-//			qnaVO.setWriter("writer"+i);
-//			qnaVO.setTitle("title"+i);
-//			qnaVO.setContents("contents"+i);
-//			int result = qnaMapper.setAdd(qnaVO);
-//		}
-//	}
+	@Test
+	void test2()throws Exception {
+		log.info("test2 case");
+		QnaVO qnaVO = new QnaVO();
+		//for(int i=0; i<1; i++) {
+			qnaVO.setWriter("writer999");
+			qnaVO.setTitle("title999");
+			qnaVO.setContents("contents999");
+			int result = qnaMapper.setAdd(qnaVO);
+		//}
+		assertEquals(1, result);
+	}
 //	
 //	@Test
 //	void test()throws Exception {
