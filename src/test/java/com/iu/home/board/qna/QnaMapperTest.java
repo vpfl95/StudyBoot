@@ -50,7 +50,7 @@ class QnaMapperTest {
 		System.out.println("Test 메서드 실행후");
 	}
 	
-	@Test
+	//@Test
 	void test2()throws Exception {
 		log.info("test2 case");
 		QnaVO qnaVO = new QnaVO();
