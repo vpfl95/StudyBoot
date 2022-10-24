@@ -24,6 +24,10 @@ class TransferTest {
 	void test() {
 		transport.takeBus();
 		transport.takeSubway();
+		
+		transport.airPlane();
+		
+		transport.getTaxi();
 	}
 
 }

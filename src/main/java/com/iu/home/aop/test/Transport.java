@@ -9,15 +9,11 @@ import lombok.extern.slf4j.Slf4j;
 public class Transport {
 	
 	public void takeBus() {
-
 		log.info("-------------버스타기------------");
-
 	}
 	
 	public void takeSubway() {
-
 		log.info("-------------지하철타기------------");
-		
 	}
 	
 	public void getTaxi() {

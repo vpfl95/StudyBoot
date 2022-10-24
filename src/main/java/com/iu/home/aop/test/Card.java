@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 @Aspect
 public class Card {
 	
-	@Before("execution(* com.iu.home.aop.test.Transport.airplane())")
+	@Before("execution(* com.iu.home.aop.test.Transport.airPlane())")
 	public void before() {
 		log.info("===============Before===============");
 	}
