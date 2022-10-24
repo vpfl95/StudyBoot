@@ -51,17 +51,17 @@ class QnaMapperTest {
 	}
 	
 	//@Test
-	void test2()throws Exception {
-		log.info("test2 case");
-		QnaVO qnaVO = new QnaVO();
-		//for(int i=0; i<1; i++) {
-			qnaVO.setWriter("writer999");
-			qnaVO.setTitle("title999");
-			qnaVO.setContents("contents999");
-			int result = qnaMapper.setAdd(qnaVO);
-		//}
-		assertEquals(1, result);
-	}
+//	void test2()throws Exception {
+//		log.info("test2 case");
+//		QnaVO qnaVO = new QnaVO();
+//		//for(int i=0; i<1; i++) {
+//			qnaVO.setWriter("writer999");
+//			qnaVO.setTitle("title999");
+//			qnaVO.setContents("contents999");
+//			int result = qnaMapper.setAdd(qnaVO);
+//		//}
+//		assertEquals(1, result);
+//	}
 //	
 //	@Test
 //	void test()throws Exception {
