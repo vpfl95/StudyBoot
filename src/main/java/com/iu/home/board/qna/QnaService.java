@@ -23,10 +23,17 @@ public class QnaService {
 	
 	@Autowired
 	private QnaMapper qnaMapper;
+	
 	@Value("${app.upload.qna}")
-	private String path;
+	private String path;	// /result/upload/qna
+	
 	@Autowired
 	private FileManager fileManager;
+	
+	public QnaVO getDetail(QnaVO qnaVO)throws Exception{
+		return qnaMapper.getDetail(qnaVO);
+	}
+	
 	
 	public List<QnaVO> getList(Pager pager)throws Exception{
 		return qnaMapper.getList(pager);
@@ -63,8 +70,5 @@ public class QnaService {
 		return result;
 	}
 	
-	
-	public QnaVO getDetail(QnaVO qnaVO)throws Exception{
-		return qnaMapper.getDetail(qnaVO);
-	}
+
 }

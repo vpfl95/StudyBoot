@@ -11,13 +11,15 @@
 <body>
 	<h1>Detail Page</h1>
 	
-	<div>${qnaVO.num}</div>
-	<div>${qnaVO.writer}</div>
-	<div>${qnaVO.title}</div>
-	<div>${qnaVO.contents}</div>
-	<div>${qnaVO.regDate}</div>
-	<c:forEach items="${qnaVO.files}" var="file">
-		<a href="">${file.fileName}</a>
+	<h3>NUM : ${qnaVO.num}</h3>
+	<h3>작성자 : ${qnaVO.writer}</h3>
+	<h3>제목 : ${qnaVO.title}</h3>
+	<h3>내용 : ${qnaVO.contents}</h3>
+	<h3>날짜 : ${qnaVO.regDate}</h3>
+	<c:forEach items="${qnaVO.qnaFiles}" var="fileVO">
+		<!-- file -> result/upload. -->
+		<img  alt="" src="/file/qna/${fileVO.fileName}">  
+		<a href="/fileDown/qna?${fileVO.fileNum}">${fileVO.oriName}</a>
 	</c:forEach>
 </body>
 </html>

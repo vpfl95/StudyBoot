@@ -26,6 +26,9 @@ public class QnaController {
 	@Autowired
 	private QnaService qnaService;
 	
+	
+	
+	
 	@GetMapping("list")
 	public ModelAndView getList(Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();

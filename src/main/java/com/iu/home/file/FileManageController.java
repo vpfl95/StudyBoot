@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.home.board.qna.QnaFileVO;
+import com.iu.home.board.qna.QnaService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,6 +19,12 @@ public class FileManageController {
 		log.info("path {}",path);
 		ModelAndView mv = new ModelAndView();
 		//DB에서 정보 조회
+		if(path.equals("qna")) {
+			
+		}else if(path.endsWith("notice")) {
+			
+		}
+		
 		qnaFileVO.setFileName("19eaa4af-a0d3-4a0f-b8e0-20af01c68e29_ic_content_star_on_20x20_nor_yellow-7ffe4aa6d3c620c559111070c71a20b7.png");
 		qnaFileVO.setOriName("ic_content_star_on_20x20_nor_yellow-7ffe4aa6d3c620c559111070c71a20b7.png");
 		
@@ -25,6 +32,11 @@ public class FileManageController {
 		mv.addObject("path",path);
 		mv.setViewName("fileManager");
 		
+		// BeanNameResolver :
+		// view의 이름과 일치하는 bean의 이름이 있으면 해당 Bean 실행
+		
+		// InternalResourceViewResolver
+		// /WEB-INF/view/fileManager.jsp
 		return mv;
 	}
 	
