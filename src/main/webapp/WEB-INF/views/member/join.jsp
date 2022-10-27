@@ -41,7 +41,7 @@
                 <input type="email" name="email" class="form-control" id="inputEmail">
                 <div id="inputEmailResult"></div>
             </div>
-            
+
             <div>
                 <button type="submit" class="btn btn-primary" id="joinButton">가입</button>
             </div>

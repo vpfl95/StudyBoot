@@ -30,6 +30,27 @@ public class QnaService {
 	@Autowired
 	private FileManager fileManager;
 	
+	public QnaFileVO getDetailFile(QnaFileVO qnaFileVO)throws Exception{
+		return qnaMapper.getDetailFile(qnaFileVO);
+	}
+	
+	public int setDeleteFile(QnaFileVO qnaFileVO)throws Exception{
+		qnaFileVO = qnaMapper.getDetailFile(qnaFileVO);
+		int result = qnaMapper.setDeleteFile(qnaFileVO);
+		
+		if(result>0) {
+			File file = new File(path, qnaFileVO.getFileName());
+			file.delete();
+		}
+		
+		return result;
+	}
+	
+	
+	public int setUpdate(QnaVO qnaVO)throws Exception{
+		return qnaMapper.setUpdate(qnaVO);
+	}
+	
 	public QnaVO getDetail(QnaVO qnaVO)throws Exception{
 		return qnaMapper.getDetail(qnaVO);
 	}

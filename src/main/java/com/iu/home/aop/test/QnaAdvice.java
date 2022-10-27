@@ -26,7 +26,7 @@ public class QnaAdvice {
 	}
 	
 	
-	@Around("execution(* com.iu.home.board.qna.QnaService.set*(..))") 
+	//@Around("execution(* com.iu.home.board.qna.QnaService.set*(..))") 
 	public Object aroundTest(ProceedingJoinPoint joinPoint)throws Throwable{	//joinPoint에 set*()이 들어 있음
 		log.info("--------before----------");
 		//point-cut의 클래스객체

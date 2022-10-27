@@ -4,6 +4,19 @@
 		    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 <mapper namespace="com.iu.home.board.qna.QnaMapper">
+	<!-- <update id="setUpdate" parameterType="QnaVO">
+		UPDATE SET
+	</update> -->
+	<select id="getDetailFile" parameterType="QnaFileVO" resultType="QnaFileVO">
+		SELECT * FROM QNAFILES WHERE FILENUM=#{fileNum}
+	</select>
+	
+	<delete id="setDeleteFile" parameterType="QnaFileVO" >
+		DELETE FROM QNAFILE WHERE FILENUM=#{fileNum}
+	</delete>
+	
+
+
 	<select id="getList" parameterType="Pager" resultType="com.iu.home.board.qna.QnaVO">
 		SELECT * FROM QNA ORDER BY NUM DESC limit #{startRow},#{perPage}
 	</select>
