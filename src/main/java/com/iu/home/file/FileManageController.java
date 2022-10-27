@@ -21,7 +21,7 @@ public class FileManageController {
 		//DB에서 정보 조회
 		if(path.equals("qna")) {
 			
-		}else if(path.endsWith("notice")) {
+		}else if(path.equals("notice")) {
 			
 		}
 		
