@@ -14,7 +14,7 @@
 		INSERT INTO MEMBER(id,pw,name,email) VALUES(#{id},#{pw},#{name},#{email})
 	</insert>
 	
-	<select id="getLogin" parameterType="MemberVO" resultMap="getLoginResult">
+	<select id="getLogin" parameterType="String" resultMap="getLoginResult">
 		SELECT M.*, R.*
 		FROM MEMBER M
 			INNER JOIN
@@ -23,11 +23,11 @@
 			INNER JOIN
 			ROLE R
 			ON MR.NUM = R.NUM
-		WHERE M.id=#{id} AND M.PW=#{pw}
+		WHERE M.id=#{username}
 	</select>
 	<resultMap type="MemberVO" id="getLoginResult">
 		<id column="id" property="id"/>
-		
+		<result column="pw" property="pw"/>
 		<result column="name" property="name"/>
 		<result column="email" property="email"/>
 

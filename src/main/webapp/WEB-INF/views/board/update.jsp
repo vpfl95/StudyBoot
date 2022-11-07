@@ -44,7 +44,7 @@
 			</div>
 
   
-            <div class="mb-3" id="fileAddResult">
+            <div class="mb-3" id="fileAddResult" data-file-size="${vo.qnaFiles.size()}">
                 
             </div>
             <div class="mb-3">
@@ -64,7 +64,9 @@
 			height: 250
 		});
 
-		$("#contents").summernote('code','${vo.contents}')
+		$("#contents").summernote('code','${vo.contents}');
+
+		
 	</script>
 </body>
 </html>

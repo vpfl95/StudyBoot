@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,14 +18,30 @@
 	<img src="./images/title1.jpg">
 	<a href="./qna/list">QNA</a>
 	
-	<c:if  test="${empty member}">
+	<!-- 로그인 전  -->
+	<sec:authorize access="!isAuthenticated()">
 		<a href="./member/login">Login</a>
+		<a href="/oauth2/authorization/kakao">Kakao Login</a>
 		<a href="./member/join">Join</a>
-	</c:if>
-	<c:if test="${not empty member}">
+	</sec:authorize>
+
+	<!-- 로그인 성공  -->
+	<sec:authorize access="isAuthenticated()"> <!-- 로그인 유무 -->
+		<sec:authentication property="Principal" var="user"/>
+		<h3><spring:message code="welcome" arguments="${user.name}"></spring:message></h3>
+		<h3><spring:message code="welcome2" arguments="${user.id},${user.name}" argumentSeparator=","></spring:message></h3>
 		<a href="./member/logout">Logout</a>
-		<a href="./member/myPage">My Page</a>
-	</c:if>
+		<a href="./member/mypage">My Page</a>
+	</sec:authorize>
+	
+	<sec:authorize url="/admin">	<!-- 권한 이름 -->
+		<a href="/admin">Go Admin</a>
+	</sec:authorize>
+	
+	<sec:authorize access="hasAnyRole('ADMIN','MANAGER')">
+		<a href="/manager">Go Manger</a>
+	</sec:authorize>
+
 	<div>
 		<img src="/file/qna/19eaa4af-a0d3-4a0f-b8e0-20af01c68e29_ic_content_star_on_20x20_nor_yellow-7ffe4aa6d3c620c559111070c71a20b7.png" alt="">
 		<img src="/file/notice/common.jpg" alt="">

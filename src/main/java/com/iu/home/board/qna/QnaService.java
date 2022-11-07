@@ -79,6 +79,7 @@ public class QnaService {
 			
 			if(!f.isEmpty()) {
 				log.info("fileName {}",f.getOriginalFilename());
+				log.info("num : {}",qnaVO.getNum());
 				String fileName = fileManager.saveFile(f, path);
 				QnaFileVO qnaFileVO = new QnaFileVO();
 				qnaFileVO.setFileName(fileName);

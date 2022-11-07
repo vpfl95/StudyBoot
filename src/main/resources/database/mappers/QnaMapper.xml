@@ -12,7 +12,7 @@
 	</select>
 	
 	<delete id="setDeleteFile" parameterType="QnaFileVO" >
-		DELETE FROM QNAFILE WHERE FILENUM=#{fileNum}
+		DELETE FROM QNAFILES WHERE FILENUM=#{fileNum}
 	</delete>
 	
 

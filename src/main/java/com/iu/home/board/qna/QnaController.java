@@ -48,6 +48,16 @@ public class QnaController {
 		mv.addObject("vo",qnaVO);
 		return mv;
 	}
+//	@PostMapping("update")
+//	public ModelAndView setUpdate(QnaVO qnaVO)throws Exception{
+//		ModelAndView mv = new ModelAndView();
+//		qnaVO = qnaService.getDetail(qnaVO);
+//		mv.setViewName("/board/update");
+//		mv.addObject("vo",qnaVO);
+//		return mv;
+//	}
+	
+	
 	
 	
 	@GetMapping("list")
@@ -70,7 +80,7 @@ public class QnaController {
 	
 	@PostMapping("write")
 	public String setWrite(QnaVO qnaVO, RedirectAttributes redirectAttributes)throws Exception{
-		
+		log.info("num : {}",qnaVO.getNum());
 		int result = qnaService.setAdd(qnaVO);
 		redirectAttributes.addAttribute("result",result);
 		

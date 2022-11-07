@@ -19,7 +19,7 @@
 	<c:forEach items="${qnaVO.qnaFiles}" var="fileVO">
 		<!-- file -> result/upload. -->
 		<img  alt="" src="/file/qna/${fileVO.fileName}">  
-		<a href="/fileDown/qna?${fileVO.fileNum}">${fileVO.oriName}</a>
+		<a href="/fileDown/qna?fileNum=${fileVO.fileNum}">${fileVO.oriName}</a>
 	</c:forEach>
 
 	<a href="./update?num=${qnaVO.num}">update</a>

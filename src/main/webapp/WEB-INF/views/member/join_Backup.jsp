@@ -13,40 +13,33 @@
 </head>
 <body>
 	<h1>Join Page</h1>
-    <form:form modelAttribute="memberVO" method="post">
+    
+    <form action="./join" method="post" id="joinForm">
         <div class="container-fluid">
             <div class="mb-3">
                 <label for="inputId" class="form-label">ID</label>
-                <form:input path="id" cssClass="form-control" id="inputId"/>
-                <div id="inputIdResult">
-                	<form:errors path="id"></form:errors>                
-                </div>
+                <input type="text" name="id" class="form-control" id="inputId">
+                <div id="inputIdResult"></div>
                 
             </div>
             <div class="mb-3">
                 <label for="inputPw" class="form-label">Password</label>
-                 <form:password path="pw" cssClass="form-control" id="inputPw"/>
-                 <form:errors path="pw"></form:errors>
-                 <div id="inputPwResult"></div>
+                <input type="password" name="pw" class="form-control" id="inputPw">
+                <div id="inputPwResult"></div>
             </div>
             <div class="mb-3">
                 <label for="inputPw2" class="form-label">Password</label>
-                <form:password path="pwCheck" cssClass="form-control" id="inputPw2"/>
-                <form:errors path="pwCheck"></form:errors>
+                <input type="password" class="form-control" id="inputPw2">
                 <div id="inputPwResult2"></div>
             </div>
             <div class="mb-3">
                 <label for="inputName" class="form-label">Name</label>
-                <form:input path="name" cssClass="form-control" id="inputName"/>
-			    
-                <div id="inputNameResult">
-                	${name}
-                </div>
+                <input type="text" name="name" class="form-control" id="inputName">
+                <div id="inputNameResult"></div>
             </div>
             <div class="mb-3">
                 <label for="inputEmail" class="form-label">Email address</label>
-                 <form:input path="email" cssClass="form-control" id="inputEmail" />
-			     <form:errors path="email"></form:errors>
+                <input type="email" name="email" class="form-control" id="inputEmail">
                 <div id="inputEmailResult"></div>
             </div>
 
@@ -55,9 +48,7 @@
             </div>
         </div>
 
-    </form:form>
-
- 
+    </form>
 
     <!-- 약관 test -->
 	<div id="test">
