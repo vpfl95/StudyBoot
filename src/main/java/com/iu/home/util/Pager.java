@@ -18,7 +18,7 @@ public class Pager {
 	}
 	
 	public void setRowNum() {
-		this.startRow = (this.getPage()-1) * this.getPerPage()  + 1;
+		this.startRow = (this.getPage()-1) * this.getPerPage();
 		this.lastRow = this.getPage() * this.getPerPage();
 	}
 	

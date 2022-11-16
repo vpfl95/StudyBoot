@@ -3,6 +3,7 @@ package com.iu.home.member;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -11,11 +12,12 @@ import javax.validation.constraints.Pattern;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import lombok.Data;
 
 @Data
-public class MemberVO implements UserDetails {
+public class MemberVO implements UserDetails, OAuth2User {
 	@NotBlank(message="ID는 꼭 필요해")
 	private String id;
 	@NotBlank
@@ -29,6 +31,14 @@ public class MemberVO implements UserDetails {
 	private boolean enabled;
 	private String pwCheck;
 	private List<RoleVO> roleVOs;
+	
+	
+	// ====== Social Login =====
+	// Kakao, Naver, Google
+	private String social;
+	// OAuth2User, Token등 정보 저장
+	private Map<String, Object> attributes; 
+	
 	
 	@Override  //권한을 넣어준다.
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -78,5 +88,12 @@ public class MemberVO implements UserDetails {
 	// false : 계정 비활성화(계정 사용 불가능, 로그인 불가)
 	public boolean isEnabled() {
 		return true;
+	}
+	
+	//OAuth2User
+	@Override
+	public Map<String, Object> getAttributes() {
+		// TODO Auto-generated method stub
+		return this.attributes;
 	}
 }

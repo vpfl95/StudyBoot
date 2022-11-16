@@ -17,7 +17,7 @@
 		<h3>${msg}</h3>
 	</div>
 	
-    <form action="http://192.168.1.40/member/login" method="post">
+    <form action="./login" method="post">
         <div class="container-fluid">
             <div class="mb-3">
                 <label for="inputId" class="form-label">ID</label>

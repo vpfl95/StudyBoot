@@ -21,7 +21,7 @@
 	<!-- 로그인 전  -->
 	<sec:authorize access="!isAuthenticated()">
 		<a href="./member/login">Login</a>
-		<a href="/oauth2/authorization/kakao">Kakao Login</a>
+		<a href="/oauth2/authorization/kakao">KakaoLogin</a>
 		<a href="./member/join">Join</a>
 	</sec:authorize>
 
@@ -30,6 +30,7 @@
 		<sec:authentication property="Principal" var="user"/>
 		<h3><spring:message code="welcome" arguments="${user.name}"></spring:message></h3>
 		<h3><spring:message code="welcome2" arguments="${user.id},${user.name}" argumentSeparator=","></spring:message></h3>
+		
 		<a href="./member/logout">Logout</a>
 		<a href="./member/mypage">My Page</a>
 	</sec:authorize>

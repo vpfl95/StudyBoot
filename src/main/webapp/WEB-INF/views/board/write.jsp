@@ -59,7 +59,61 @@
 	</div>
 	
 	<script type="text/javascript">
-		$('#contents').summernote();
+		$('#contents').summernote({
+			tabsize:4,
+			height:250,
+			callbacks: {
+				onImageUpload: function(file){
+					console.log("imageUpload")
+					// ajax로 file sever로 업로드 후 경로를받아서 사용
+					uploadFile(file)
+				},
+				onMediaDelete: function(file){
+					console.log("Delete Media");
+					console.log("DeleteFile =>",file)
+					deleteFile(file)
+				}
+			}
+		});
+
+		function deleteFile(file){
+			console.log(file.attr("src"))
+			$.post("./summerFileDelete", {fileName:file.attr("src")}, function(result){
+				console.log("reuslt ", result)
+			})
+		}
+
+
+		//ajax upload 함수
+		function uploadFile(file){
+			console.log("file ", file)
+			console.log("filename =>", file[0].name)
+			// <form> form태그
+			const formData = new FormData();
+			// <input type="file">
+			formData.append('file', file[0])
+
+			$.ajax({
+				type: "POST",
+				url:"summerFile",
+				data:formData,
+				//header
+				cache:false,
+				processData:false,
+				contentType:false,
+				enctype:'multipart/form-data',
+				success:function(img){
+					console.log("Image =>",img)
+					//img = '<img src="' + img + '">'
+
+					$('#contents').summernote('insertImage', img, file[0].name);
+				},
+				error:function(){
+					console.log("이미지 업로드 실패")
+				}
+			});
+		}
+		
 	</script>
 </body>
 </html>

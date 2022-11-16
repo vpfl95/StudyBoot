@@ -86,8 +86,10 @@ public class SecurityConfig {
 					.and()
 				.logout()
 					.logoutUrl("/member/logout")
-					.logoutSuccessUrl("/")
-					.invalidateHttpSession(true)	// 세션 지우기
+					//.logoutSuccessUrl("/")
+					//.invalidateHttpSession(true)	// 세션 지우기
+					.logoutSuccessHandler(logoutSuccessCustom)
+					.addLogoutHandler(logoutCustom)
 					.deleteCookies("JSESSIONID")	// 쿠키 지우기
 					.permitAll()
 					.and()
